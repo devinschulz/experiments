@@ -1,6 +1,7 @@
 package algorithms
 
 import (
+	"math/rand"
 	"reflect"
 	"testing"
 )
@@ -40,5 +41,54 @@ func TestInsertionSort(t *testing.T) {
 				"got", v,
 			)
 		}
+	}
+}
+
+// $ go test -bench=.
+var hundred = generateRandomSlice(100)
+var thousand = generateRandomSlice(1000)
+var tenThousand = generateRandomSlice(10000)
+
+func generateRandomSlice(count int) []int {
+	var v = []int{}
+	for i := 0; i < count; i++ {
+		v = append(v, rand.Int())
+	}
+	return v
+}
+
+func BenchmarkBubbleSortHundred(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		BubbleSort(hundred)
+	}
+}
+
+func BenchmarkBubbleSortThousand(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		BubbleSort(thousand)
+	}
+}
+
+func BenchmarkBubbleSortTenThousand(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		BubbleSort(tenThousand)
+	}
+}
+
+func BenchmarkInsertionSortHundred(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		InsertionSort(hundred)
+	}
+}
+
+func BenchmarkInsertionSortThousand(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		InsertionSort(thousand)
+	}
+}
+
+func BenchmarkInsertionSortTenThousand(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		InsertionSort(tenThousand)
 	}
 }
