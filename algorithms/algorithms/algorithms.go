@@ -13,13 +13,12 @@ func BubbleSort(nums []int) []int {
 }
 
 func InsertionSort(nums []int) []int {
-	for i := 0; i < len(nums); i++ {
-		temp := nums[i]
+	for i, num := range nums {
 		j := i - 1
-		for ; j >= 0 && nums[j] > temp; j-- {
+		for ; j >= 0 && nums[j] > num; j-- {
 			nums[j+1] = nums[j]
 		}
-		nums[j+1] = temp
+		nums[j+1] = num
 	}
 	return nums
 }
