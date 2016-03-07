@@ -6,7 +6,7 @@ const (
 )
 
 func Run(limit int) []string {
-	v := make([]string, 0)
+	v := []string{}
 	for i := 1; i <= limit; i++ {
 		threes := i%3 == 0
 		fives := i%5 == 0
