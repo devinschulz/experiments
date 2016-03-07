@@ -29,3 +29,16 @@ func TestBubbleSort(t *testing.T) {
 		}
 	}
 }
+
+func TestInsertionSort(t *testing.T) {
+	for _, pair := range tests {
+		v := IntersectionSort(pair.value)
+		if !reflect.DeepEqual(v, pair.result) {
+			t.Error(
+				"for", pair.value,
+				"expected", pair.result,
+				"got", v,
+			)
+		}
+	}
+}
