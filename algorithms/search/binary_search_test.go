@@ -1,7 +1,7 @@
 package algorithms_test
 
 import (
-	"github.com/devinschulz/experiments/algorithms/algorithms/search"
+	"github.com/devinschulz/experiments/algorithms/search"
 	"testing"
 )
 

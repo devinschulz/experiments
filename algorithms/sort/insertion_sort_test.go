@@ -1,7 +1,7 @@
 package algorithms_test
 
 import (
-	"github.com/devinschulz/experiments/algorithms/algorithms/sort"
+	"github.com/devinschulz/experiments/algorithms/sort"
 	"reflect"
 	"testing"
 )
