@@ -1,6 +1,7 @@
-package algorithms
+package algorithms_test
 
 import (
+	"github.com/devinschulz/experiments/algorithms/algorithms/sort"
 	"math/rand"
 	"reflect"
 	"testing"
@@ -20,25 +21,12 @@ var tests = []test{
 
 func TestBubbleSort(t *testing.T) {
 	for _, pair := range tests {
-		arr := BubbleSort(pair.value)
+		arr := algorithms.BubbleSort(pair.value)
 		if !reflect.DeepEqual(arr, pair.result) {
 			t.Error(
 				"for", pair.value,
 				"expected", pair.result,
 				"got", arr,
-			)
-		}
-	}
-}
-
-func TestInsertionSort(t *testing.T) {
-	for _, pair := range tests {
-		v := InsertionSort(pair.value)
-		if !reflect.DeepEqual(v, pair.result) {
-			t.Error(
-				"for", pair.value,
-				"expected", pair.result,
-				"got", v,
 			)
 		}
 	}
@@ -59,36 +47,18 @@ func generateRandomSlice(count int) []int {
 
 func BenchmarkBubbleSortHundred(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		BubbleSort(hundred)
+		algorithms.BubbleSort(hundred)
 	}
 }
 
 func BenchmarkBubbleSortThousand(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		BubbleSort(thousand)
+		algorithms.BubbleSort(thousand)
 	}
 }
 
 func BenchmarkBubbleSortTenThousand(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		BubbleSort(tenThousand)
-	}
-}
-
-func BenchmarkInsertionSortHundred(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		InsertionSort(hundred)
-	}
-}
-
-func BenchmarkInsertionSortThousand(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		InsertionSort(thousand)
-	}
-}
-
-func BenchmarkInsertionSortTenThousand(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		InsertionSort(tenThousand)
+		algorithms.BubbleSort(tenThousand)
 	}
 }

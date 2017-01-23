@@ -1,6 +1,9 @@
-package vowels
+package strings_test
 
-import "testing"
+import (
+	"testing"
+	"github.com/devinschulz/experiments/strings/vowels"
+)
 
 type test struct {
 	value string
@@ -16,7 +19,7 @@ var tests = []test{
 
 func TestCount(t *testing.T) {
 	for _, pair := range tests {
-		v := Count(pair.value)
+		v := strings.VowelCount(pair.value)
 		if v != pair.count {
 			t.Error(
 				"for", pair.value,

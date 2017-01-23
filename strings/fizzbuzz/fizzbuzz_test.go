@@ -1,6 +1,9 @@
-package fizzbuzz
+package strings_test
 
-import "testing"
+import (
+	"testing"
+	"github.com/devinschulz/experiments/strings/fizzbuzz"
+)
 
 var test = []string{
 	"Fizz", "Buzz", "Fizz", "Fizz", "Buzz", "Fizz", "FizzBuzz",
@@ -11,7 +14,7 @@ var test = []string{
 }
 
 func TestRun(t *testing.T) {
-	v := Run(75)
+	v := strings.FizzBuzz(75)
 	for i, d := range test {
 		if d != v[i] {
 			t.Error(

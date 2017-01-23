@@ -1,6 +1,9 @@
-package palindrome
+package strings_test
 
-import "testing"
+import (
+	"testing"
+	"github.com/devinschulz/experiments/strings/palindrome"
+)
 
 type test struct {
 	value  string
@@ -18,7 +21,7 @@ var tests = []test{
 
 func TestPalindrome(t *testing.T) {
 	for _, pair := range tests {
-		v := Valid(pair.value)
+		v := strings.Palindrome(pair.value)
 		if v != pair.result {
 			t.Error(
 				"for", pair.value,
